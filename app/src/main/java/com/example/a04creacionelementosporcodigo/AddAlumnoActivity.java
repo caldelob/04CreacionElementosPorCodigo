@@ -46,29 +46,29 @@ public class AddAlumnoActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.putExtras(bundle);
                     setResult(RESULT_OK, intent);
+                    finish();
                 }else{
                     Toast.makeText(AddAlumnoActivity.this, "FALTAN DATOS", Toast.LENGTH_LONG).show();
                 }
             }
-
-            private Alumno createAlumno() {
-                if(binding.txtNombreAddAlumno.getText().toString().isEmpty() || binding.txtApellidosAddAlumno.getText().toString().isEmpty())
-                    return null;
-                
-                if
-                (binding.spCiclosAddAlumno.getSelectedItemPosition()== 0)
-            return null;
-                if(!binding.rbGrupoAAddAlumno.isChecked() && !binding.rbGrupoBAddAlumno.isChecked() && !binding.rbGrupoCAddAlumno.isChecked())
-                    return null;
-                
-                String ciclo = (String) binding.spCiclosAddAlumno.getSelectedItem();
-                RadioButton rb = findViewById(binding.rgGruposAdd.getCheckedRadioButtonId());
-                char grupo = rb.getText().charAt(0);
-                
-                return new Alumno(binding.txtNombreAddAlumno.getText().toString(), binding.txtApellidosAddAlumno.getText().toString(), ciclo, grupo);
-            }
         });
         
         
+    }
+
+    private Alumno createAlumno() {
+        if(binding.txtNombreAddAlumno.getText().toString().isEmpty() || binding.txtApellidosAddAlumno.getText().toString().isEmpty())
+            return null;
+
+        if (binding.spCiclosAddAlumno.getSelectedItemPosition()== 0)
+            return null;
+        if(!binding.rbGrupoAAddAlumno.isChecked() && !binding.rbGrupoBAddAlumno.isChecked() && !binding.rbGrupoCAddAlumno.isChecked())
+            return null;
+
+        String ciclo = (String) binding.spCiclosAddAlumno.getSelectedItem();
+        RadioButton rb = findViewById(binding.rgGruposAdd.getCheckedRadioButtonId());
+        char grupo = rb.getText().charAt(0);
+
+        return new Alumno(binding.txtNombreAddAlumno.getText().toString(), binding.txtApellidosAddAlumno.getText().toString(), ciclo, grupo);
     }
 }

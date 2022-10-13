@@ -47,4 +47,14 @@ public class Alumno implements Serializable {
     public void setGrupo(char grupo) {
         this.grupo = grupo;
     }
+
+    @Override
+    public String toString() {
+        return "Alumno{" +
+                "nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", ciclo='" + ciclo + '\'' +
+                ", grupo=" + grupo +
+                '}';
+    }
 }
